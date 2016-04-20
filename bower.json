@@ -1,0 +1,22 @@
+{
+  "name": "three learn",
+  "homepage": "https://github.com/SmallGress/threeLearn",
+  "authors": [
+    "SmallGress <451148156@qq.com>"
+  ],
+  "description": "learn three from three.js",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "three.js": "threejs#*"
+  }
+}

@@ -7,8 +7,10 @@ $(function(){
     //renderer.setClearColorHex(0xEEEEEE); 这个不知道为什么不能用
     renderer.setSize(window.innerWidth,window.innerHeight);
 
-    var axes = new THREE.AxisHelper(20);
+    //创建坐标轴
+    var axes = new THREE.AxisHelper(50);
     scene.add(axes);
+    //创建坐标轴结束
     //平台添加
     var planeGeometry = new THREE.PlaneGeometry(60,20,1,1);
     var planeMaterial = new THREE.MeshBasicMaterial({
@@ -16,6 +18,7 @@ $(function(){
     });
     var plane = new THREE.Mesh(planeGeometry,planeMaterial);
 
+    //绕着x轴转90度
     plane.rotation.x = -0.5*Math.PI;
 
     plane.position.x = 15;
@@ -50,6 +53,7 @@ $(function(){
     sphere.position.z = 2;
     scene.add(sphere);
     //球体结束
+
 
     camera.position.x = -30;
     camera.position.y = 40;
