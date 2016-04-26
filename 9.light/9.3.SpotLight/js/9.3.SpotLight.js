@@ -1,4 +1,6 @@
-camera.position.set(100,100,100)
+//允许产生阴影
+renderer.shadowMap.enabled = true;
+camera.position.set(100,100,100);
 //平台
 var planeGeometry = new THREE.PlaneGeometry(60,40);
 var planeMaterial = new THREE.MeshLambertMaterial({
@@ -7,6 +9,8 @@ var planeMaterial = new THREE.MeshLambertMaterial({
 var plane = new THREE.Mesh(planeGeometry,planeMaterial);
 plane.rotation.x = -0.5*Math.PI;
 plane.position.set(10,10,10);
+//接收阴影
+plane.receiveShadow = true;
 
 scene.add(plane);
 
@@ -20,15 +24,24 @@ var cubeMaterial = new THREE.MeshLambertMaterial({
     color:0xff0000
 });
 var cube = new THREE.Mesh(cubeGeometry,cubeMaterial);
+cube.castShadow = true;
 cube.position.set(10,15,10);
 scene.add(cube);
 
 //环境光
 var ambientLight = new THREE.AmbientLight("#0c0c0c");
 scene.add(ambientLight);
+
 //聚光灯光源
 var spotLight = new THREE.SpotLight(0xffffff);
 spotLight.position.set(30,50,20);
+//产生阴影
+spotLight.castShadow = true;
+spotLight.target = plane;
+
+//阴影的宽和高
+spotLight.shadowMapWidth = 2300;
+spotLight.shadowMapHeight = 2300;
 scene.add(spotLight);
 
 //点光源
